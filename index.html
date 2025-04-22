@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa Galeria</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+        :root {
+            --primary-color: #e91e63;
+            --secondary-color: #666;
+            --bg-gradient: linear-gradient(to right, #7ac8f2, #f28db4);
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background-color: #17071c;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            padding: 15px;
+        }
+        
+        .music-player {
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 15px;
+        }
+        
+        .container {
+            background-color: aliceblue;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-family: 'Special Gothic Expanded One', sans-serif;
+            font-size: clamp(1.5rem, 5vw, 2rem);
+        }
+
+        .counter {
+            font-size: 1.2rem;
+            margin: 15px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .time-unit {
+            min-width: 70px;
+        }
+
+        .time-value {
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: clamp(1.5rem, 6vw, 2.2rem);
+        }
+
+        .time-label {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+        }
+
+        .start-date {
+            margin-top: 20px;
+            font-style: italic;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .heart {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin: 10px 0;
+            animation: pulse 1.5s infinite;
+        }
+
+        /* Estilos do Carrossel em Retrato */
+        .carousel {
+            width: 80%;
+            max-width: 300px;
+            height: 120vw;
+            max-height: 400px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        
+        .carousel-inner {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .carousel-item {
+            min-width: 100%;
+            height: 100%;
+        }
+        
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
+
+        /* Media Queries para ajustes específicos */
+        @media (max-width: 400px) {
+            .time-unit {
+                min-width: 60px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            .carousel {
+                width: 90%;
+                height: 130vw;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .carousel {
+                max-width: 250px;
+                max-height: 350px;
+            }
+        }
+        .texto{
+            color: aliceblue;
+            font-family: "Poppins";
+            align-items: center;
+            text-align: center;
+        }
+        div {
+        font-family: "Poppins", sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="music-player">
+        <iframe title="deezer-widget" src="https://widget.deezer.com/widget/dark/playlist/13765532941" width="100%" height="150" frameborder="0" allowtransparency="true" allow="encrypted-media; clipboard-write"></iframe>
+    </div>
+    
+    <!-- Carrossel de Fotos em Retrato -->
+    <div class="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item">
+                <img src="1.jpeg" alt="Foto 1">
+            </div>
+            <div class="carousel-item">
+                <img src="2.jpeg" alt="Foto 2">
+            </div>
+            <div class="carousel-item">
+                <img src="3.jpeg" alt="Foto 3">
+            </div>
+            <div class="carousel-item">
+                <img src="4.jpeg" alt="Foto 4">
+            </div>
+            <div class="carousel-item">
+                <img src="5.jpeg" alt="Foto 5">
+            </div>
+            <div class="carousel-item">
+                <img src="6.jpeg" alt="Foto 6">
+            </div>
+            <div class="carousel-item">
+                <img src="7.jpeg" alt="Foto 7">
+            </div>
+            <div class="carousel-item">
+                <img src="8.jpeg" alt="Foto 8">
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h1>Nosso Tempo Juntos</h1>
+        <div class="heart">❤</div>
+        
+        <div class="counter">
+            <div class="time-unit">
+                <div class="time-value" id="years">0</div>
+                <div class="time-label">Anos</div>
+            </div>
+            
+            <div class="time-unit">
+                <div class="time-value" id="months">0</div>
+                <div class="time-label">Meses</div>
+            </div>
+            
+            <div class="time-unit">
+                <div class="time-value" id="days">0</div>
+                <div class="time-label">Dias</div>
+            </div>
+        </div>
+        
+        <div class="counter">
+            <div class="time-unit">
+                <div class="time-value" id="hours">0</div>
+                <div class="time-label">Horas</div>
+            </div>
+            
+            <div class="time-unit">
+                <div class="time-value" id="minutes">0</div>
+                <div class="time-label">Minutos</div>
+            </div>
+            
+            <div class="time-unit">
+                <div class="time-value" id="seconds">0</div>
+                <div class="time-label">Segundos</div>
+            </div>
+        </div>
+        
+        <div class="start-date" id="start-date">Desde: </div>
+    </div>
+    <hr/ width="100%">
+    <p class="texto">As vezes me pego revivendo aqueles momentos antes da gente existir oficialmente: os olhares que trocavamos com tímidez, os encontros casuais que pareciam coincidência (mas eu já ficava todo felizinho por dentro), e aquele primeiro beijo nosso, nós dois tímidos pelos corredores do IF kkkkkk, mas mal sabiamos o que viria pela frente.
+        E agora aqui estamos, com uma história que começou em sorrisos, olhares e virou meu lugar favorito. Obrigado por cada momento, minha princesa.</p>
+    <script>
+        // Configura a data de início do relacionamento (ano, mês-1, dia)
+        const startDate = new Date(2024, 5, 27); // MODIFIQUE AQUI COM SUA DATA
+        
+        function updateCounter() {
+            const now = new Date();
+            const diff = now - startDate;
+            
+            // Calcula os valores
+            const seconds = Math.floor(diff / 1000);
+            const minutes = Math.floor(seconds / 60);
+            const hours = Math.floor(minutes / 60);
+            const days = Math.floor(hours / 24);
+            
+            // Calcula anos e meses (aproximado)
+            const startYear = startDate.getFullYear();
+            const currentYear = now.getFullYear();
+            let years = currentYear - startYear;
+            
+            const startMonth = startDate.getMonth();
+            const currentMonth = now.getMonth();
+            let months = currentMonth - startMonth;
+            
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+            
+            // Ajusta os dias para o mês atual
+            const startDay = startDate.getDate();
+            const currentDay = now.getDate();
+            let adjustedDays = currentDay - startDay;
+            
+            if (adjustedDays < 0) {
+                months--;
+                const lastDayOfMonth = new Date(now.getFullYear(), now.getMonth(), 0).getDate();
+                adjustedDays += lastDayOfMonth;
+            }
+            
+            // Calcula horas, minutos e segundos do dia atual
+            const remainingHours = hours % 24;
+            const remainingMinutes = minutes % 60;
+            const remainingSeconds = seconds % 60;
+            
+            // Atualiza a interface
+            document.getElementById('years').textContent = years;
+            document.getElementById('months').textContent = months;
+            document.getElementById('days').textContent = adjustedDays;
+            document.getElementById('hours').textContent = remainingHours;
+            document.getElementById('minutes').textContent = remainingMinutes;
+            document.getElementById('seconds').textContent = remainingSeconds;
+            
+            // Formata a data de início
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = startDate.toLocaleDateString('pt-BR', options);
+            document.getElementById('start-date').textContent = `Desde: ${formattedDate}`;
+        }
+        
+        // Função para o carrossel automático
+        function setupCarousel() {
+            const carouselInner = document.querySelector('.carousel-inner');
+            const items = document.querySelectorAll('.carousel-item');
+            let currentIndex = 0;
+            const itemCount = items.length;
+            
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % itemCount;
+                carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+            
+            // Troca de slide a cada 3 segundos
+            setInterval(nextSlide, 3000);
+        }
+        
+        // Inicializa tudo quando a página carregar
+        window.onload = function() {
+            updateCounter();
+            setInterval(updateCounter, 1000);
+            setupCarousel();
+        };
+    </script>
+</body>
+</html>
